@@ -24,7 +24,7 @@ module.exports = (grunt) ->
 				expand: true
 			dist:
 				cwd: '<%= build %>'
-				src: ['stylesheets/**/*.css', 'assets/**/*']
+				src: ['stylesheets/**/*.css', 'assets/**/*', 'index.html', 'index.concat.html']
 				dest: '<%= dist %>/'
 				expand: true
 		
@@ -51,11 +51,31 @@ module.exports = (grunt) ->
 				dest: '<%= build %>/scripts/'
 				ext: '.js'
 
+		# Compile all Jade templates
+		jade:
+			index:
+				files: [{
+					src: '<%= app %>/index.jade'
+					dest: '<%= build %>/index.html'
+				}]
+			views:
+				files: [{
+					expand: true
+					cwd: '<%= build %>/views'
+					dest: '<%= build %>/views/'
+					ext: '.html'
+					src: ["**/*.jade"]
+				}]
+
+		smoosher:
+			build:
+				files:
+					'<%= build %>/index.concat.html': '<%= build %>/index.html'
 		karma:
 			unit:
 				configFile: 'karma.conf.js'
 
-	grunt.registerTask('build', ['clean', 'copy:assets', 'copy:build', 'coffee']) 
-	grunt.registerTask('dist', ['build', 'concat:dist', 'copy:dist']) 	
+	grunt.registerTask('build', ['clean', 'copy:assets', 'copy:build', 'coffee', 'jade:index', 'smoosher:build'])
+	grunt.registerTask('dist', ['build', 'concat:dist', 'copy:dist'])
 	grunt.registerTask('test', ['build', 'karma:unit'])
 	grunt.registerTask('default', ['build', 'test'])

@@ -49,11 +49,15 @@ AngularAppGenerator.prototype.app = function app() {
 	this.mkdir('app/src/stylesheets');
 
 	this.copy('Gruntfile.coffee', 'Gruntfile.coffee');
+	this.copy('app/index.jade', 'app/index.jade');
 
 	this.template('_package.json', 'package.json');
 	this.template('_bower.json', 'bower.json');
+	this.copy('.bowerrc', '.bowerrc');
+	
 	this.template('karma.conf.js', 'karma.conf.js');
 	this.template('app/src/scripts/app.coffee', 'app/src/scripts/app.coffee');
+	this.template('app/test/app_spec.coffee', 'app/test/app_spec.coffee');
 };
 
 AngularAppGenerator.prototype.projectfiles = function projectfiles() {

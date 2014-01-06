@@ -18,6 +18,7 @@
 		"grunt-contrib-concat": "latest",
 		"grunt-contrib-clean": "latest",
 		"grunt-contrib-stylus": "latest",
+		"grunt-jade-usemin": "latest",
 		"grunt-cachebuster": "latest",
 		"stylus": "latest",
 		"grunt-html2js": "latest",
@@ -27,6 +28,7 @@
 		"karma-coffee-preprocessor": "latest",
 		"karma-ng-html2js-preprocessor": "latest",
 		"grunt-pngmin": "latest",
+		"grunt-html-smoosher": "latest",
 		"rally-style": "git+ssh://git@github.com:RallySoftware/rally-style.git"
 	}
 }

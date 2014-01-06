@@ -9,9 +9,9 @@ module.exports = function(config) {
 
 		// list of files / patterns to load in the browser
 		files: [
-			'bower_components/angular/angular.js',
-			'bower_components/angular-mocks/angular-mocks.js',
-			'bower_components/rui-angular/rui.js',
+			'app/assets/bower_components/angular/angular.js',
+			'app/assets/bower_components/angular-mocks/angular-mocks.js',
+			'app/assets/bower_components/rui-angular/rui.js',
 			
 			'app/src/scripts/**/*.js',
 			'app/src/scripts/**/*.coffee',
