@@ -1,0 +1,11 @@
+{
+	"name": "<%= moduleName %>",
+	"version": "0.0.0",
+	"author": "<%= authorName %>",
+	"dependencies": {
+		"angular": "latest",
+		"angular-mocks": "latest",
+		"rui-angular": "RallySoftware/bower-rui-angular",
+		"rally-style": "git@github.com:/RallySoftware/rally-style.git"    
+	}
+}

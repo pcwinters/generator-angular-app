@@ -1,0 +1,32 @@
+{
+	"name": "<%= moduleName %>",
+	"version": "0.0.0",
+	"author": "<%= authorName %>",
+	"dependencies": {
+		"jade": "latest",    
+		"lodash": "latest"    
+	},
+	"devDependencies": {
+		"coffee-script": "latest",
+		"nock": "latest",
+		"karma": "latest",
+		"grunt": "latest",
+		"grunt-cli": "latest",
+		"grunt-karma": "latest",
+		"matchdep": "latest",
+		"bower": "latest",
+		"grunt-contrib-concat": "latest",
+		"grunt-contrib-clean": "latest",
+		"grunt-contrib-stylus": "latest",
+		"grunt-cachebuster": "latest",
+		"stylus": "latest",
+		"grunt-html2js": "latest",
+		"grunt-contrib-coffee": "latest",
+		"grunt-contrib-jade": "latest",
+		"grunt-contrib-copy": "latest",
+		"karma-coffee-preprocessor": "latest",
+		"karma-ng-html2js-preprocessor": "latest",
+		"grunt-pngmin": "latest",
+		"rally-style": "git+ssh://git@github.com:RallySoftware/rally-style.git"
+	}
+}
