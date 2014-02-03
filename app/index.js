@@ -49,7 +49,7 @@ AngularAppGenerator.prototype.app = function app() {
 	this.mkdir('app/src/stylesheets');
 
 	this.copy('Gruntfile.coffee', 'Gruntfile.coffee');
-	this.copy('app/index.jade', 'app/index.jade');
+	this.template('app/index.jade', 'app/index.jade');
 
 	this.template('_package.json', 'package.json');
 	this.template('_bower.json', 'bower.json');
