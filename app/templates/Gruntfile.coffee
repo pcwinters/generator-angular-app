@@ -1,4 +1,5 @@
 matchdep = require('matchdep')
+path = require('path')
 
 module.exports = (grunt) ->
 	#Load all grunt tasks (except grunt-cli) from NPM
@@ -75,7 +76,27 @@ module.exports = (grunt) ->
 			unit:
 				configFile: 'karma.conf.js'
 
+		express:
+			server:
+				options:
+					port: 9000
+					bases: path.resolve(__dirname, 'build')
+
+		watch:
+			server:
+				files: ['app/**/*.*']
+				tasks: ['build']				
+
+		concurrent: 
+			dev:
+				tasks: ['server', 'build', 'watch']
+				options:
+					logConcurrentOutput: true
+
 	grunt.registerTask('build', ['clean', 'copy:assets', 'copy:build', 'coffee', 'jade:index', 'smoosher:build'])
 	grunt.registerTask('dist', ['build', 'concat:dist', 'copy:dist'])
 	grunt.registerTask('test', ['build', 'karma:unit'])
 	grunt.registerTask('default', ['build', 'test'])
+	grunt.registerTask('server', ['express', 'express-keepalive'])
+	grunt.registerTask('dev', ['concurrent:dev'])
+
