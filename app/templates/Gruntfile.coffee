@@ -33,7 +33,7 @@ module.exports = (grunt) ->
 		concat:
 			dist:
 				files:
-					'<%= dist %>/scripts/app.js': [
+					'<%= dist %>/scripts/all.js': [
 						'<%= build %>/scripts/**/*.js'
 					]
 
@@ -56,7 +56,7 @@ module.exports = (grunt) ->
 		jade:
 			index:
 				files: [{
-					src: '<%= app %>/index.jade'
+					src: '<%= src %>/index.jade'
 					dest: '<%= build %>/index.html'
 				}]
 			views:
@@ -69,9 +69,9 @@ module.exports = (grunt) ->
 				}]
 
 		smoosher:
-			build:
+			dist:
 				files:
-					'<%= build %>/index.concat.html': '<%= build %>/index.html'
+					'<%= dist %>/index.concat.html': '<%= dist %>/index.html'
 		karma:
 			unit:
 				configFile: 'karma.conf.js'
@@ -93,8 +93,8 @@ module.exports = (grunt) ->
 				options:
 					logConcurrentOutput: true
 
-	grunt.registerTask('build', ['clean', 'copy:assets', 'copy:build', 'coffee', 'jade:index', 'smoosher:build'])
-	grunt.registerTask('dist', ['build', 'concat:dist', 'copy:dist'])
+	grunt.registerTask('build', ['clean', 'copy:assets', 'copy:build', 'coffee', 'jade:index'])
+	grunt.registerTask('dist', ['build', 'concat:dist', 'copy:dist', 'smoosher:dist'])
 	grunt.registerTask('test', ['build', 'karma:unit'])
 	grunt.registerTask('default', ['build', 'test'])
 	grunt.registerTask('server', ['express', 'express-keepalive'])

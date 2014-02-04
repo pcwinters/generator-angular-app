@@ -5,7 +5,9 @@
 	"dependencies": {
 		"angular": "latest",
 		"angular-mocks": "latest",
+		"angular-appsdk": "git@github.com:/pcw216/angular-appsdk.git",
 		"rui-angular": "RallySoftware/bower-rui-angular",
-		"rally-style": "git@github.com:/RallySoftware/rally-style.git"    
+		"rally-style": "git@github.com:/RallySoftware/rally-style.git"
+
 	}
 }
