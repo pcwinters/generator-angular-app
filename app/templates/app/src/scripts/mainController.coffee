@@ -6,5 +6,5 @@ angular.module("<%= moduleName %>").controller 'MainController',
 				@$scope.$on(eventName, @onEvent)
 
 		onEvent: (name, args...) =>
-			time = (new Date()).toString())
-			@$scope.events.push({timestamp:time, name:name})
+			timestamp = (new Date()).toString())
+			@$scope.events.push({timestamp, name})
